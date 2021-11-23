@@ -1,18 +1,19 @@
-import os
 import base64
+import os
 from io import BytesIO
-from flask import Flask, render_template, redirect, url_for, flash, session, \
-    abort
-from werkzeug.security import generate_password_hash, check_password_hash
-from flask_sqlalchemy import SQLAlchemy
-from flask_login import LoginManager, UserMixin, login_user, logout_user, \
-    current_user
-from flask_bootstrap import Bootstrap
-from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
-from wtforms.validators import Required, Length, EqualTo
+
 import onetimepass
 import pyqrcode
+from flask import (Flask, abort, flash, redirect, render_template, session,
+                   url_for)
+from flask_bootstrap import Bootstrap
+from flask_login import (LoginManager, UserMixin, current_user, login_user,
+                         logout_user)
+from flask_sqlalchemy import SQLAlchemy
+from flask_wtf import FlaskForm
+from werkzeug.security import check_password_hash, generate_password_hash
+from wtforms import PasswordField, StringField, SubmitField
+from wtforms.validators import EqualTo, Length, Required
 
 # create application instance
 app = Flask(__name__)
